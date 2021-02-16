@@ -7,10 +7,11 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import { setContext } from 'apollo-link-context';
 
 const httpLink = createHttpLink({
-  // uri: 'http://localhost:5000'
+  // uri: 'http://localhost:5000' 调试用
   uri: 'https://desolate-oasis-66707.herokuapp.com/'
 });
 
+// 获取存储在localStorage中的token并放在header中
 const authLink = setContext(() => {
   const token = localStorage.getItem('jwtToken');
   return {
